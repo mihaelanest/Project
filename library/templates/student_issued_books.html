@@ -1,0 +1,39 @@
+{% extends 'student_navbar.html' %}
+{% load static %}
+{% block title %} Lista Studenti {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="container mt-4">
+    <h1 class="text-center"><u>Toate cartile imprumutate</u></h1>
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr class="text-center">
+                <th>ID Student</th>
+                <th>Nume Student</th>
+                <th>Nume Carte</th>
+                <th>Autor</th>
+                <th>Data imprumutului</th>
+                <th>Data expirare</th>
+                <th>Fine</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in li1 %}
+            <tr class="text-center">
+                <td>{{forloop.counter}}.</td>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+                {% endfor %}
+                {% for i in li2 %}
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>₹ {{i.2}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

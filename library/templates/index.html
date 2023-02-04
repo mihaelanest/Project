@@ -1,0 +1,29 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} Online Library {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="p-4 bg-light">
+    <div class="container-fluid py-3">
+      <h1 class="display-5 fw-bold">Bine ai venit la Online Library!</h1>
+      <p class="col-md-8 fs-4">Vă puteți înscrie ca student. Veți putea emite orice carte prin intermediul administratorului. După aceea, trebuie să returnați cartea în termen de 14 zile, altfel se va percepe o amendă de 0,5 RON pe zi până la returnarea cărții.</p>
+      <a href="/student_registration/" class="btn btn-primary btn-lg">Inregistrare student</a>
+    </div>
+    <br>
+    <div class="container">
+  <div class="row">
+
+    <div class="col-lg-6">
+      <img src="{% static 'admin.png' %}" width="50%" height="50%" alt=""><br><br>
+        <a class="btn btn-outline-primary btn-lg" style="text-align:center" href="/admin_login/">Admin</a>
+    </div>
+
+    <div class="col-lg-6">
+      <img src="{% static 'students.png' %}" width="50%" height="50%" alt=""><br><br>
+      <a class="btn btn-outline-primary btn-lg" href="/student_login/">Student</a>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'student_navbar.html' %}
+
+{% block title %} Editare Profil {% endblock %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <form method="POST"> {% csrf_token %}
+<div class="row mt-4">
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Email</i></label>
+        <input type="email" class="form-control mt-2" name="email" value="{{user.email}}">
+    </div>
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Numar mobil</i></label>
+        <input type="number" class="form-control mt-2" name="phone" value="{{user.student.phone}}">
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Facultate</i></label>
+        <input type="text" class="form-control mt-2" name="branch" value="{{user.student.branch}}">
+    </div>
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Class Name</i></label>
+        <input type="text" class="form-control mt-2" name="classroom" value="{{user.student.classroom}}">
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="form-group col-md-6">
+        <label><i style="font-weight: bold;">Numar ID</i></label>
+        <input type="text" class="form-control mt-2" name="roll_no" value="{{user.student.roll_no}}">
+    </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary mt-5">Actualizare profil</button>
+</form>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Profil actualizat cu succes.")
+    document.location = "/profile"
+    {% endif %}
+</script>
+{% endblock %}

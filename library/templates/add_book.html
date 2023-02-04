@@ -1,0 +1,46 @@
+{% extends 'admin_navbar.html' %}
+{% load static %}
+{% block title %} Online Library {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <form method="POST"> {% csrf_token %}
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Nume Carte</i></label>
+            <input type="text" class="form-control mt-2" name="name" placeholder="Introdu numele cartii." required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Nume Autor</i></label>
+            <input type="text" class="form-control mt-2" name="author" placeholder="Introdu numele autorului." required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Numar ISBN</i></label>
+            <input type="number" class="form-control mt-2" name="isbn" placeholder="Introdu numarul ISBN al cartii." required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Categorie</i></label>
+            <input type="text" class="form-control mt-2" name="category" placeholder="Introdu categoria cartii." required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary mt-4">Adauga carte</button>
+</div>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+    function showAlert(){
+    alert("Cartea a fost adaugata cu succes.");
+    document.location = "/view_books"}
+</script>
+{% endblock %}

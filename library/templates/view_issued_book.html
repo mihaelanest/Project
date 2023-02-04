@@ -1,0 +1,40 @@
+{% extends 'admin_navbar.html' %}
+{% load static %}
+{% block title %} Lista studenti {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
+<div class="container mt-4">
+    <h1 class="text-center"><u>Toate cartile imprumutate</u></h1>
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr class="text-center">
+                <th>Sr.No</th>
+                <th>Student</th>
+                <th>Student ID</th>
+                <th>Nume carte</th>
+                <th>ISBN</th>
+                <th>Data imprumut</th>
+                <th>Data expirare</th>
+                <th>Ok</th>
+                <th>Sterge</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in details %}
+            <tr class="text-center">
+                <td>{{forloop.counter}}.</td>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+                <td>{{i.4}}</td>
+                <td>{{i.5}}</td>
+                <td>₹ {{i.6}}</td>
+                <td><a href="/delete_issue/{{book.id}}/" class="btn btn-danger" onclick="return confirm('Esti sigur ca vrei sa stergi imprumutul cartii?')">Sterge</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
